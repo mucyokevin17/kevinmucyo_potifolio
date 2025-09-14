@@ -1,0 +1,172 @@
+<!--
+Personal Portfolio Website for Mucyo Kevin
+File: index.html
+
+Instructions:
+1. Save this file as `index.html` in a project folder.
+2. Test locally: open index.html in your browser.
+3. To serve via Apache Tomcat: create a folder `MyPortfolio` inside TOMCAT_HOME/webapps/ and place this file as webapps/MyPortfolio/index.html, then start Tomcat and visit http://localhost:8080/MyPortfolio/
+4. To deploy on GitHub Pages:
+   - Create a GitHub repo (e.g., `mucyo-portfolio`).
+   - `git init` in the project folder, add files, commit, push to GitHub.
+   - In repo Settings -> Pages -> Source: select `main` branch and `/ (root)` -> Save.
+   - Your site will be available at https://mucyokevin17.github.io/<repo-name>/ (may take a minute).
+5. To deploy on Netlify (recommended for quick deploy):
+   - Create an account on Netlify; choose "New site from Git" -> connect GitHub -> pick repo -> Deploy site.
+6. Useful git commands:
+   git init
+   git add .
+   git commit -m "Initial portfolio"
+   git branch -M main
+   git remote add origin https://github.com/mucyokevin17/<repo>.git
+   git push -u origin main
+
+Eclipse + Apache Tomcat setup notes (required by your assignment):
+- Download Eclipse IDE for Enterprise Java and Apache Tomcat (matching version, e.g., Tomcat 9 or 10).
+- In Eclipse: Window -> Preferences -> Server -> Runtime Environments -> Add -> Apache Tomcat -> point to Tomcat installation.
+- To deploy this static site in Tomcat using Eclipse: create a new "Dynamic Web Project" (File -> New -> Dynamic Web Project). Name it `MyPortfolio`. Place the index.html under WebContent/ and run on server (Tomcat).
+
+Customization: replace placeholders (LinkedIn URL, project links) with your actual links.
+
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mucyo Kevin — Portfolio</title>
+  <meta name="description" content="Portfolio of Mucyo Kevin - Information Management student, Data Analyst intern at RISA, IT certificates">
+  <style>
+    :root{--accent:#0b7285;--bg:#0f1720;--card:#0b1220;--muted:#9aa7b2;}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:linear-gradient(180deg,#071025 0%, #071827 100%); color:#e6f0f2; line-height:1.5}
+    .container{max-width:1000px;margin:32px auto;padding:20px}
+    header{display:flex;gap:16px;align-items:center}
+    .avatar{width:110px;height:110px;border-radius:50%;overflow:hidden}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    h1{margin:0;font-size:28px}
+    p.lead{color:var(--muted);margin:6px 0 12px}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    .card{background:rgba(255,255,255,0.03);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.03);font-size:13px}
+    .cert-list{list-style:none;padding:0;margin:0}
+    .cert-list li{padding:6px 0;border-bottom:1px dashed rgba(255,255,255,0.03);color:var(--muted);font-size:14px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+    .project{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px}
+    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+    @media(max-width:900px){.grid{grid-template-columns:1fr} .avatar{margin:auto}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="avatar">
+        <!-- Use your email profile photo here -->
+        <img src="https://www.gravatar.com/avatar/<?php echo md5(strtolower(trim('mucyokevin17@gmail.com'))); ?>?s=200" alt="Mucyo Kevin">
+      </div>
+      <div>
+        <h1>Mucyo Kevin</h1>
+        <p class="lead">Information Management (final year) • Data Analysis & Data Science intern at RISA • Passionate about networks & cybersecurity</p>
+        <p style="margin:6px 0;color:var(--muted)"><strong>Email:</strong> mucyokevin17@gmail.com  •  <strong>Phone:</strong> +250 789 444 546</p>
+        <p style="margin:6px 0;color:var(--muted)"><strong>GitHub:</strong> <a href="https://github.com/mucyokevin17" target="_blank">github.com/mucyokevin17</a></p>
+      </div>
+    </header>
+
+    <div style="height:18px"></div>
+
+    <div class="grid">
+      <main>
+        <section class="card">
+          <h2>About Me</h2>
+          <p style="color:var(--muted)">I'm a final-year Information Management student at AUCA Gishushu with 3 completed years in IT. I have completed a 6-month professional internship at RISA (3 months focused on data analysis and data science). I'm interested in network security, databases, and building useful apps and dashboards.</p>
+          <p style="color:var(--muted)"><strong>Education:</strong> Completed secondary school in Mathematics, Computer, and Economics. Currently completing Bachelor's degree in Information Management.</p>
+        </section>
+
+        <section class="card" style="margin-top:12px">
+          <h3>Skills</h3>
+          <div class="skills">
+            <div class="skill">Data Analysis</div>
+            <div class="skill">SQL / PL/SQL</div>
+            <div class="skill">Java</div>
+            <div class="skill">C Programming</div>
+            <div class="skill">Linux & Networking</div>
+            <div class="skill">HTML/CSS/JS</div>
+            <div class="skill">Suricata / IDS</div>
+            <div class="skill">Git & GitHub</div>
+          </div>
+        </section>
+
+        <section class="card" style="margin-top:12px">
+          <h3>Certificates</h3>
+          <ul class="cert-list">
+            <li>CHF Certificate & English Proficiency Form (level 2)</li>
+            <li>Cisco: Introduction to Computer Networks</li>
+            <li>Cisco: Introduction to Cybersecurity</li>
+            <li>Cisco: Introduction to Operating Systems</li>
+          </ul>
+        </section>
+
+        <section class="card" style="margin-top:12px">
+          <h3>Experience</h3>
+          <p style="color:var(--muted)"><strong>Professional Internship — RISA</strong> (6 months ongoing). Completed 3 months focused on Data Analysis & Data Science. Tasks: cleaning datasets, building dashboards, analyzing network logs, supporting security monitoring.</p>
+        </section>
+
+        <section class="card" style="margin-top:12px">
+          <h3>Projects (suggestions & placeholders)</h3>
+          <div class="projects">
+            <div class="project">
+              <h4>Network Monitoring Demo</h4>
+              <p class="lead" style="color:var(--muted)">A demo showing Suricata alerts, sample logs, and visualization. (Add GitHub link)</p>
+              <a class="btn" href="https://github.com/mucyokevin17" target="_blank">View repo</a>
+            </div>
+            <div class="project">
+              <h4>Student Database (PL/SQL)</h4>
+              <p class="lead" style="color:var(--muted)">Oracle schema + PL/SQL procedures and sample queries for university data management.</p>
+              <a class="btn" href="https://github.com/mucyokevin17" target="_blank">View repo</a>
+            </div>
+            <div class="project">
+              <h4>Portfolio Website</h4>
+              <p class="lead" style="color:var(--muted)">This website (static HTML/CSS) — hosted on GitHub Pages / Netlify.</p>
+              <a class="btn" href="https://mucyokevin17.github.io/mucyo-portfolio/" target="_blank">Live site</a>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <aside>
+        <div class="card">
+          <h3>Quick Links</h3>
+          <p style="color:var(--muted)">GitHub and portfolio deployments:</p>
+          <div style="margin-top:8px"><a class="btn" href="https://github.com/mucyokevin17" target="_blank">GitHub Profile</a></div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>Tools & Technologies</h3>
+          <p style="color:var(--muted)">Tomcat, Eclipse, Git, GitHub, Netlify, Vercel, HTML, CSS, JavaScript, Python, SQL, PL/SQL</p>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>Education</h3>
+          <p style="color:var(--muted)"><strong>AUCA Gishushu</strong> — Information Management (3 years completed, final year)</p>
+          <p style="color:var(--muted)"><strong>Secondary School</strong> — Mathematics, Computer, Economics</p>
+        </div>
+      </aside>
+    </div>
+
+    <section id="contact" class="card" style="margin-top:12px">
+      <h3>Contact</h3>
+      <p style="color:var(--muted)">Email: mucyokevin17@gmail.com</p>
+      <p style="color:var(--muted)">Phone: +250 789 444 546</p>
+      <p style="color:var(--muted)">GitHub: <a href="https://github.com/mucyokevin17" target="_blank">github.com/mucyokevin17</a></p>
+    </section>
+
+    <footer>
+      <p>Made with ❤️ — Mucyo Kevin • Last updated: Sep 14, 2025</p>
+    </footer>
+  </div>
+</body>
+</html>
